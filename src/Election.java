@@ -50,4 +50,15 @@ public class Election {
         }
         updateMaxHeap();
     }
+
+    public List<String> getTopKCandidates(int k) {
+        List<String> topCandidates = new ArrayList<>();
+        PriorityQueue<Map.Entry<String, Integer>> tempHeap = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
+        tempHeap.addAll(candidatesMap.entrySet());
+
+        for (int i = 0; i < k; i++) {
+            topCandidates.add(tempHeap.poll().getKey());
+        }
+        return topCandidates;
+    }
 }
