@@ -32,4 +32,22 @@ public class Election {
         updateMaxHeap();
     }
 
+    public void rigElection(String candidate) {
+        int votesToDistribute = totalVotes;
+        for (String c : candidatesMap.keySet()) {
+            candidatesMap.put(c, 0);
+        }
+
+        int riggedVotes = votesToDistribute / 2 + 1;
+        candidatesMap.put(candidate, riggedVotes);
+        votesToDistribute -= riggedVotes;
+
+        for (String c : candidatesMap.keySet()) {
+            if (!c.equals(candidate) && votesToDistribute > 0) {
+                candidatesMap.put(c, 1);
+                votesToDistribute--;
+            }
+        }
+        updateMaxHeap();
+    }
 }
