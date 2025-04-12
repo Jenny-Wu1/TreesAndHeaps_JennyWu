@@ -23,4 +23,13 @@ public class Election {
             updateMaxHeap();
         }
     }
+
+    public void castRandomVote() {
+        Random gen = new Random();
+        List<String> candidateList = new ArrayList<>(candidatesMap.keySet());
+        String randomCandidate = candidateList.get(gen.nextInt(candidateList.size()));
+        castVote(randomCandidate);
+        updateMaxHeap();
+    }
+
 }
