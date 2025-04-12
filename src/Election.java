@@ -16,4 +16,11 @@ public class Election {
         maxHeap.clear();
         maxHeap.addAll(candidatesMap.entrySet());
     }
+
+    public void castVote(String candidate) {
+        if (candidatesMap.containsKey(candidate)) {
+            candidatesMap.put(candidate, candidatesMap.get(candidate) + 1);
+            updateMaxHeap();
+        }
+    }
 }
