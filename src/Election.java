@@ -11,4 +11,9 @@ public class Election {
         maxHeap = new PriorityQueue<>((a, b) -> b.getValue() - a.getValue());
         totalVotes = p;
     }
+
+    private void updateMaxHeap() {
+        maxHeap.clear();
+        maxHeap.addAll(candidatesMap.entrySet());
+    }
 }
