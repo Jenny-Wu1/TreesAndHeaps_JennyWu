@@ -61,4 +61,12 @@ public class Election {
         }
         return topCandidates;
     }
+
+    public void auditElection() {
+        PriorityQueue<Map.Entry<String, Integer>> tempHeap = new PriorityQueue<>(maxHeap);
+        while(!tempHeap.isEmpty()) {
+            Map.Entry<String, Integer> entry = tempHeap.poll();
+            System.out.println(entry.getKey() + " - " + entry.getValue());
+        }
+    }
 }
